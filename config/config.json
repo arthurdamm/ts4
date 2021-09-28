@@ -4,20 +4,20 @@
     "password": "my-secret-pw",
     "database": "ts4_dev",
     "host": "127.0.0.1",
-    "dialect": "mardiadb"
+    "dialect": "mariadb"
   },
   "test": {
     "username": "root",
     "password": "my-secret-pw",
     "database": "ts4_test",
     "host": "127.0.0.1",
-    "dialect": "mardiadb"
+    "dialect": "mariadb"
   },
   "production": {
     "username": "root",
     "password": "my-secret-pw",
     "database": "ts4_prod",
     "host": "127.0.0.1",
-    "dialect": "mardiadb"
+    "dialect": "mariadb"
   }
 }
