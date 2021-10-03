@@ -158,7 +158,7 @@ export async function doStuffWithUser() {
 
   // Note the `!` null assertion since TS can't know if we included
   // the model or not
-  console.log(ourUser.tweets![0].title);
+  console.log('DO STUFF WITH USER', ourUser.tweets![0].title);
 }
 
 export default db;
