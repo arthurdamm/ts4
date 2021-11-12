@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 import db from './libs/db';
 import User from './models/User';
+import { helloExpress } from './helloExpress';
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', async (req: Request, res: Response): Promise<Response> => {
-  const str: string = 'Hello Express!!!';
+  const str: string = helloExpress();
 
   return res.json(str);
 });
