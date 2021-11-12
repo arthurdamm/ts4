@@ -1,14 +1,16 @@
 'use strict';
 
+// Fix the any's here
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+const db: any = {};
 
-let sequelize;
+let sequelize: any;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
@@ -21,12 +23,12 @@ if (config.use_env_variable) {
 }
 
 fs.readdirSync(__dirname)
-  .filter((file) => {
+  .filter((file: any) => {
     return (
       file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.ts'
     );
   })
-  .forEach((file) => {
+  .forEach((file: any) => {
     const model = require(path.join(__dirname, file))(
       sequelize,
       Sequelize.DataTypes

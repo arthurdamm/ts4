@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 // import helmet from 'helmet';
 import dotenv from 'dotenv';
 
-import db, { User, doStuffWithUser } from './libs/db';
+import db from './libs/db';
+import User from './models/User';
 
 dotenv.config();
 
@@ -21,30 +22,37 @@ app.get('/', async (req: Request, res: Response): Promise<Response> => {
 });
 
 app.get('/users', async (req: Request, res: Response): Promise<Response> => {
-  const users = await User.findAll();
-
-  return res.json(
-    users.map(
-      ({
-        firstName,
-        lastName,
-        email,
-      }: {
-        firstName: string;
-        lastName: string;
-        email: string;
-      }) => ({
-        firstName,
-        lastName,
-        email,
-      })
-    )
-  );
+  try {
+    const users = await User.findAll();
+    return res.json(
+      users.map(
+        ({
+          firstName,
+          lastName,
+          email,
+        }: {
+          firstName: string;
+          lastName: string;
+          email: string;
+        }) => ({
+          firstName,
+          lastName,
+          email,
+        })
+      )
+    );
+    return res.json({ users });
+  } catch (error) {
+    console.log({ error });
+    return res.json({ error });
+  }
 });
 
 try {
+  console.log({ db, User });
+
   app.listen(port, () => console.log(`Running on port ${port}!!`));
-  doStuffWithUser();
+  // doStuffWithUser();
 } catch (err) {
   console.log({ err });
 }

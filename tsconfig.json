@@ -102,4 +102,5 @@
     // ARTHUR: skipLibCheck was on:
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   }
+  // "include": ["server/models/**/*.ts", "server/libs/**/*.ts"]
 }

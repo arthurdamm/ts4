@@ -19,6 +19,7 @@ npm i helmet
 npm i rimraf
 npm i sequelize
 npm i -D @types/sequelize
+npm i -D @types/validator
 npm i -D sequelize-cli
 npm i mariadb
 npm i mysql2
